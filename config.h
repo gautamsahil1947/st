@@ -209,8 +209,8 @@ static MouseShortcut mshortcuts[] = {
 
 static char *copyurlcmd[] = {"/bin/sh", "-c", "st-urlhandler -c",
                              "externalpipe", NULL};
-static char *copyoutput[] = {"/bin/sh", "-c", "st-copyout", "externalpipe",
-                             NULL};
+// static char *copyoutput[] = {"/bin/sh", "-c", "st-copyout", "externalpipe",
+//                              NULL};
 
 static Shortcut shortcuts[] = {
     /* mask                 keysym          function        argument */
@@ -219,9 +219,9 @@ static Shortcut shortcuts[] = {
     {ShiftMask, XK_Print, printscreen, {.i = 0}},
     {XK_ANY_MOD, XK_Print, printsel, {.i = 0}},
 
-    {MODKEY, XK_k, zoom, {.f = +1}},
-    {MODKEY, XK_j, zoom, {.f = -1}},
-    {MODKEY, XK_l, externalpipe, {.v = copyurlcmd}},
+    {STKEY, XK_k, zoom, {.f = +1}},
+    {STKEY, XK_j, zoom, {.f = -1}},
+    {STKEY, XK_l, externalpipe, {.v = copyurlcmd}},
 
     {TERMMOD, XK_Home, zoomreset, {.f = 0}},
     {TERMMOD, XK_C, clipcopy, {.i = 0}},
