@@ -204,11 +204,12 @@ static MouseShortcut mshortcuts[] = {
 
 /* Internal keyboard shortcuts. */
 #define STKEY (Mod1Mask | ControlMask)
-#define MODKEY Mod1Mask
+#define ALTSHIFT (Mod1Mask | ShiftMask)
 #define TERMMOD (ControlMask | ShiftMask)
 
 static char *copyurlcmd[] = {"/bin/sh", "-c", "st-urlhandler -c",
                              "externalpipe", NULL};
+
 // static char *copyoutput[] = {"/bin/sh", "-c", "st-copyout", "externalpipe",
 //                              NULL};
 
@@ -222,6 +223,8 @@ static Shortcut shortcuts[] = {
     {STKEY, XK_k, zoom, {.f = +1}},
     {STKEY, XK_j, zoom, {.f = -1}},
     {STKEY, XK_l, externalpipe, {.v = copyurlcmd}},
+    {STKEY, XK_u, kscrollup, {.i = -1}},
+    {STKEY, XK_d, kscrolldown, {.i = -1}},
 
     {TERMMOD, XK_Home, zoomreset, {.f = 0}},
     {TERMMOD, XK_C, clipcopy, {.i = 0}},
@@ -229,8 +232,8 @@ static Shortcut shortcuts[] = {
     {TERMMOD, XK_Y, selpaste, {.i = 0}},
     {ShiftMask, XK_Insert, selpaste, {.i = 0}},
     {TERMMOD, XK_Num_Lock, numlock, {.i = 0}},
-    {ShiftMask, XK_Page_Up, kscrollup, {.i = -1}},
-    {ShiftMask, XK_Page_Down, kscrolldown, {.i = -1}},
+    // {ShiftMask, XK_Page_Up, kscrollup, {.i = -1}},
+    // {ShiftMask, XK_Page_Down, kscrolldown, {.i = -1}},
 };
 
 /*
